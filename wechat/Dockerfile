@@ -1,10 +1,10 @@
 FROM ghcr.io/linuxserver/baseimage-kasmvnc:arch
 
-RUN mkdir /tmp_home &&\
-    chown abc:abc /tmp_home
-WORKDIR /tmp_home
 USER abc
-RUN sudo pacman -Syu --noconfirm &&\
+RUN sudo mkdir /tmp_home &&\
+    chown abc:abc /tmp_home &&\
+    cd /tmp_home &&\
+    sudo pacman -Syu --noconfirm &&\
     sudo pacman -S --noconfirm git noto-fonts-cjk &&\
     git clone https://aur.archlinux.org/electron19-bin.git &&\
     cd electron19-bin &&\
@@ -19,7 +19,7 @@ RUN sudo pacman -Syu --noconfirm &&\
     sudo pacman -Scc
 
 USER root
-COPY root/ /
+COPY /root /
 RUN grep -- '-geometry 1024x768' /etc/s6-overlay/s6-rc.d/svc-kasmvnc/run &&\
     sed -i 's/-geometry 1024x768/-geometry 2560x1440/' /etc/s6-overlay/s6-rc.d/svc-kasmvnc/run
 
