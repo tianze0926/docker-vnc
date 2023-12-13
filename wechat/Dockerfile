@@ -15,6 +15,7 @@ RUN sudo mkdir /tmp_home &&\
     makepkg -srci --noconfirm &&\
     cd .. &&\
     sudo pacman -S --noconfirm wine-for-wechat wqy-microhei &&\
+    sudo pacman -S --noconfirm wine-mono &&\
     export HOME=/tmp_home &&\
     paru -S --noconfirm com.qq.weixin.spark &&\
     paru -Sc --delete &&\
