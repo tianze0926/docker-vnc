@@ -16,15 +16,11 @@ RUN sudo mkdir /tmp_home &&\
     cd .. &&\
     sudo pacman -S --noconfirm wine-for-wechat wqy-microhei &&\
     export HOME=/tmp_home &&\
-    echo HOME $HOME &&\
-    echo XDG_CONFIG_HOME $XDG_CONFIG_HOME &&\
-    echo XDG_CACHE_HOME $XDG_CACHE_HOME &&\
-    echo XDG_STATE_HOME $XDG_STATE_HOME &&\
     paru -S --noconfirm com.qq.weixin.spark &&\
     paru -Sc --delete &&\
     cd / &&\
     sudo rm -rf /tmp_home &&\
-    sudo pacman -Rsu --noconfirm git paru &&\
+    sudo pacman -Rsu --noconfirm git paru-bin &&\
     yes | sudo pacman -Scc
 
 USER root
