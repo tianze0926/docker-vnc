@@ -15,7 +15,7 @@ RUN sudo mkdir /tmp_home &&\
     cd .. &&\
     sudo pacman -S --noconfirm wine-for-wechat wqy-microhei &&\
     paru -S --noconfirm com.qq.weixin.spark &&\
-    cd /&&\
+    cd / &&\
     sudo rm -rf /tmp_home &&\
     sudo pacman -Rsu --noconfirm git paru &&\
     yes | sudo pacman -Scc
