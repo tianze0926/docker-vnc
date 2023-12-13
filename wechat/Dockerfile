@@ -2,7 +2,7 @@ FROM ghcr.io/linuxserver/baseimage-kasmvnc:arch
 
 USER abc
 RUN sudo mkdir /tmp_home &&\
-    chown abc:abc /tmp_home &&\
+    sudo chown abc:abc /tmp_home &&\
     cd /tmp_home &&\
     sudo pacman -Syu --noconfirm &&\
     sudo pacman -S --noconfirm git noto-fonts-cjk &&\
