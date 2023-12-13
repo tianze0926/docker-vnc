@@ -4,9 +4,8 @@ USER abc
 RUN sudo mkdir /tmp_home &&\
     sudo chown abc:abc /tmp_home &&\
     cd /tmp_home &&\
-    printf "[multilib]\nInclude = /etc/pacman.d/mirrorlist\n" | sudo tee -a /etc/pacman.conf &&\
-    printf "[archlinuxcn]\nServer = https://mirrors.xtom.us/archlinuxcn/$arch\n" | sudo tee -a /etc/pacman.conf &&\
-    sudo pacman -Sy --noconfirm archlinuxcn-keyring &&\
+    printf '[multilib]\nInclude = /etc/pacman.d/mirrorlist\n' | sudo tee -a /etc/pacman.conf &&\
+    printf '[archlinuxcn]\nServer = https://mirrors.xtom.us/archlinuxcn/$arch\n' | sudo tee -a /etc/pacman.conf &&\
     sudo pacman -Syyu --noconfirm &&\
     sudo pacman -S --noconfirm archlinuxcn-keyring &&\
     sudo pacman -S --noconfirm git &&\
