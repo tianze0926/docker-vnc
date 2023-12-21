@@ -18,7 +18,5 @@ RUN sudo mkdir /tmp_home &&\
     sudo pacman -Rsu --noconfirm git paru-bin &&\
     yes | sudo pacman -Scc
 
-RUN cat /usr/share/applications/feishu.desktop
-
 USER root
 COPY /root /
