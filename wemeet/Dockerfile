@@ -11,7 +11,7 @@ RUN sudo mkdir /tmp_home &&\
     makepkg -srci --noconfirm &&\
     cd .. &&\
     export HOME=/tmp_home &&\
-    sudo pacman -S --noconfirm qt5-svg &&\
+    sudo pacman -S --noconfirm qt5-svg adobe-source-han-sans-cn-fonts adobe-source-han-serif-cn-fonts &&\
     paru -S --noconfirm wemeet-bin &&\
     paru -Sc --delete &&\
     cd / &&\
