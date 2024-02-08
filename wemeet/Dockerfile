@@ -21,3 +21,4 @@ RUN sudo mkdir /tmp_home &&\
 
 USER root
 COPY /root /
+RUN chmod 555 /defaults/init.sh

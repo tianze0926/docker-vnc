@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+  app:
+    image: ghcr.io/tianze0926/vnc-wemeet
+    ports:
+      - 127.0.0.1:3002:3000
+    environment:
+      PUID: 1000
+      PGID: 100
+      XDG_RUNTIME_DIR: $XDG_RUNTIME_DIR
+    volumes:
+      - $XDG_RUNTIME_DIR/pulse:$XDG_RUNTIME_DIR/pulse
+      - ./tmp:/tmp
+    # ipc: host
+    # cap_drop: ["ALL"]
+    # cap_add:
+    #   - SETGID
+    #   - SETUID
+    #   - DAC_OVERRIDE
+    #   - CHOWN
+    # security_opt:
+    #   - no-new-privileges
+    devices:
+      - /dev/dri
+      - /dev/video0
