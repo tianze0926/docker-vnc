@@ -1,0 +1,20 @@
+services:
+  corplink:
+    image: corplink
+    container_name: corplink
+    ports:
+      - 127.0.0.1:3000:3000 # webvnc
+    # vpn
+    devices:
+      - /dev/net/tun:/dev/net/tun
+    cap_add:
+      - NET_ADMIN
+    # persist login state
+    volumes:
+      - config:/config/.config/CorpLink
+      - service-config:/opt/Corplink
+    hostname: corplink
+
+volumes:
+  config:
+  service-config:
